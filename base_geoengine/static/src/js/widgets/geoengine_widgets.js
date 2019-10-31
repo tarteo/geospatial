@@ -68,8 +68,7 @@ odoo.define('base_geoengine.geoengine_widgets', function (require) {
                 source: this.source,
                 style: new ol.style.Style({
                     fill: new ol.style.Fill({
-                        color: '#ee9900',
-                        opacity: 0.7,
+                        color: '#ee990032'
                     }),
                     stroke: new ol.style.Stroke({
                         color: '#ee9900',
@@ -143,7 +142,6 @@ odoo.define('base_geoengine.geoengine_widgets', function (require) {
         },
 
         _setValue: function (value, zoom) {
-
             this._super(value);
             this.value = value;
 
@@ -174,7 +172,9 @@ odoo.define('base_geoengine.geoengine_widgets', function (require) {
         _onUIChange: function () {
             var value = null;
             if (this._geometry) {
+                console.log(this._geometry);
                 value = this.format.writeGeometry(this._geometry);
+                console.log(value);
             }
             this._setValue(value, false);
         },
